@@ -62,6 +62,15 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\IActive.cs" />
+    <Compile Include="Migrations\201810211754387_InitialMigration.cs" />
+    <Compile Include="Migrations\201810211754387_InitialMigration.Designer.cs">
+      <DependentUpon>201810211754387_InitialMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810212327539_SalesTargetsPersonAndRegion.cs" />
+    <Compile Include="Migrations\201810212327539_SalesTargetsPersonAndRegion.Designer.cs">
+      <DependentUpon>201810212327539_SalesTargetsPersonAndRegion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model_Entity\BaseModel.cs" />
     <Compile Include="Model_Entity\ObservableListSource.cs" />
     <Compile Include="Model_Entity\Sale.cs" />
@@ -69,6 +78,15 @@
     <Compile Include="Model_Entity\SalesRegion.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810211754387_InitialMigration.resx">
+      <DependentUpon>201810211754387_InitialMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810212327539_SalesTargetsPersonAndRegion.resx">
+      <DependentUpon>201810212327539_SalesTargetsPersonAndRegion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -79,6 +97,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\EFProjectSalesApp.Model_Entity.Sale.datasource" />
+    <None Include="Properties\DataSources\EFProjectSalesApp.Model_Entity.SalesPerson.datasource" />
+    <None Include="Properties\DataSources\EFProjectSalesApp.Model_Entity.SalesRegion.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
