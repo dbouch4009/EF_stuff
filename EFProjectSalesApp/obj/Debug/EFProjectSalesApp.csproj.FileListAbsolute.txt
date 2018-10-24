@@ -1,0 +1,17 @@
+C:\dev\EF_stuff\EFProjectSalesApp\bin\Debug\EFProjectSalesApp.exe.config
+C:\dev\EF_stuff\EFProjectSalesApp\bin\Debug\EFProjectSalesApp.exe
+C:\dev\EF_stuff\EFProjectSalesApp\bin\Debug\EFProjectSalesApp.pdb
+C:\dev\EF_stuff\EFProjectSalesApp\bin\Debug\EntityFramework.dll
+C:\dev\EF_stuff\EFProjectSalesApp\bin\Debug\EntityFramework.SqlServer.dll
+C:\dev\EF_stuff\EFProjectSalesApp\bin\Debug\EntityFramework.xml
+C:\dev\EF_stuff\EFProjectSalesApp\bin\Debug\EntityFramework.SqlServer.xml
+C:\dev\EF_stuff\EFProjectSalesApp\obj\Debug\EFProjectSalesApp.Properties.Resources.resources
+C:\dev\EF_stuff\EFProjectSalesApp\obj\Debug\EFProjectSalesApp.csproj.GenerateResource.cache
+C:\dev\EF_stuff\EFProjectSalesApp\obj\Debug\EFProjectSalesApp.csproj.CoreCompileInputs.cache
+C:\dev\EF_stuff\EFProjectSalesApp\obj\Debug\EFProjectSalesApp.csproj.CopyComplete
+C:\dev\EF_stuff\EFProjectSalesApp\obj\Debug\EFProjectSalesApp.exe
+C:\dev\EF_stuff\EFProjectSalesApp\obj\Debug\EFProjectSalesApp.pdb
+C:\dev\EF_stuff\EFProjectSalesApp\obj\Debug\EFProjectSalesApp.Migrations.InitialMigration.resources
+C:\dev\EF_stuff\EFProjectSalesApp\obj\Debug\EFProjectSalesApp.Migrations.SalesTargetsPersonAndRegion.resources
+C:\dev\EF_stuff\EFProjectSalesApp\obj\Debug\EFProjectSalesApp.Form1.resources
+C:\dev\EF_stuff\EFProjectSalesApp\obj\Debug\EFProjectSalesApp.csprojAssemblyReference.cache

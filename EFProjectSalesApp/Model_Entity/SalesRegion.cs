@@ -20,6 +20,8 @@ namespace EFProjectSalesApp.Model_Entity
 
         public virtual ObservableListSource<Sale> Sales { get; set; }
 
-
+        [Required]
+        [Range(0.01, Double.MaxValue)]
+        public decimal SalesTarget { get; set; }
     }
 }
