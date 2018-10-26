@@ -52,10 +52,68 @@ namespace EFProjectSalesApp
             var regionId = (int)cbSalesRegion.SelectedValue;
             using (var context = new SalesContext())
             {
-                salesPersonBindingSource.DataSource = context.Sales
+                saleBindingSource.DataSource = context.Sales
                     .Where(ent => ent.PersonId == personId && ent.RegionId == regionId)
                     .OrderBy(s => s.Date)
                     .ToList();
+
+                var sale = context.Sales.Where(sl => sl.PersonId == personId && sl.RegionId == regionId)
+                                        .FirstOrDefault();
+
+
+                tbAmount.Text = sale.Amount.ToString();
+                tbDate.Text = sale.Date.ToString();
+                tbPerson.Text = sale.Person.ToString();
+
+            }
+
+            
+            
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void btnTargetSales_Click(object sender, EventArgs e)
+        {
+            var personId = (int)cbSalesPeople.SelectedValue;
+            var regionId = (int)cbSalesRegion.SelectedValue;
+
+            using (var context = new SalesContext())
+            {
+                var person = context.SalesPeople.SingleOrDefault(p => p.id == personId);
+
+                if(person != null)
+                {
+                    MessageBox.Show(string.Format("{0} has a target of {1}", person.FullName, person.SalesTarget));
+                }
+            }
+        }
+
+        private void btnTBRefresh_Click(object sender, EventArgs e)
+        {
+            var personId = (int)cbSalesPeople.SelectedValue;
+            var regionId = (int)cbSalesRegion.SelectedValue;
+            using (var context = new SalesContext())
+            {
+                var sale = context.Sales.Where(sl => sl.PersonId == personId && sl.RegionId == regionId)
+                                        .FirstOrDefault();
+
+                var salesPerson = context.SalesPeople.Where(per => per.id == sale.PersonId).FirstOrDefault();
+
+                tbAmount.Text = sale.Amount.ToString();
+                tbDate.Text = sale.Date.ToString();
+                if (sale.Person.Equals(null))
+                {
+                    sale.Person.FirstName = "Lance Bass";
+                }
+                else
+                {
+                    tbPerson.Text = sale.Person.FullName.ToString();
+                }
+
             }
         }
     }

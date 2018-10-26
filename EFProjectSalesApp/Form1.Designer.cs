@@ -44,6 +44,14 @@
             this.regionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UpdatedByUser = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.saleBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tbAmount = new System.Windows.Forms.TextBox();
+            this.tbDate = new System.Windows.Forms.TextBox();
+            this.tbPerson = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.btnTargetSales = new System.Windows.Forms.Button();
+            this.btnTBRefresh = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.salesPersonBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.salesRegionBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -125,11 +133,12 @@
             this.regionDataGridViewTextBoxColumn,
             this.UpdatedByUser});
             this.dataGridView1.DataSource = this.saleBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(27, 225);
+            this.dataGridView1.Location = new System.Drawing.Point(29, 429);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(645, 150);
             this.dataGridView1.TabIndex = 5;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // amountDataGridViewTextBoxColumn
             // 
@@ -177,11 +186,87 @@
             // 
             this.saleBindingSource.DataSource = typeof(EFProjectSalesApp.Model_Entity.Sale);
             // 
+            // tbAmount
+            // 
+            this.tbAmount.Location = new System.Drawing.Point(70, 332);
+            this.tbAmount.Name = "tbAmount";
+            this.tbAmount.Size = new System.Drawing.Size(100, 20);
+            this.tbAmount.TabIndex = 6;
+            // 
+            // tbDate
+            // 
+            this.tbDate.Location = new System.Drawing.Point(210, 332);
+            this.tbDate.Name = "tbDate";
+            this.tbDate.Size = new System.Drawing.Size(100, 20);
+            this.tbDate.TabIndex = 7;
+            // 
+            // tbPerson
+            // 
+            this.tbPerson.Location = new System.Drawing.Point(337, 332);
+            this.tbPerson.Name = "tbPerson";
+            this.tbPerson.Size = new System.Drawing.Size(100, 20);
+            this.tbPerson.TabIndex = 8;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(67, 287);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(43, 13);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "Amount";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(207, 287);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(30, 13);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "Date";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(334, 287);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(40, 13);
+            this.label5.TabIndex = 11;
+            this.label5.Text = "Person";
+            // 
+            // btnTargetSales
+            // 
+            this.btnTargetSales.Location = new System.Drawing.Point(35, 161);
+            this.btnTargetSales.Name = "btnTargetSales";
+            this.btnTargetSales.Size = new System.Drawing.Size(75, 46);
+            this.btnTargetSales.TabIndex = 12;
+            this.btnTargetSales.Text = "Target";
+            this.btnTargetSales.UseVisualStyleBackColor = true;
+            this.btnTargetSales.Click += new System.EventHandler(this.btnTargetSales_Click);
+            // 
+            // btnTBRefresh
+            // 
+            this.btnTBRefresh.Location = new System.Drawing.Point(70, 229);
+            this.btnTBRefresh.Name = "btnTBRefresh";
+            this.btnTBRefresh.Size = new System.Drawing.Size(75, 23);
+            this.btnTBRefresh.TabIndex = 13;
+            this.btnTBRefresh.Text = "TB Refresh";
+            this.btnTBRefresh.UseVisualStyleBackColor = true;
+            this.btnTBRefresh.Click += new System.EventHandler(this.btnTBRefresh_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(696, 450);
+            this.ClientSize = new System.Drawing.Size(696, 616);
+            this.Controls.Add(this.btnTBRefresh);
+            this.Controls.Add(this.btnTargetSales);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.tbPerson);
+            this.Controls.Add(this.tbDate);
+            this.Controls.Add(this.tbAmount);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.label2);
@@ -217,6 +302,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn regionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn UpdatedByUser;
         private System.Windows.Forms.BindingSource saleBindingSource;
+        private System.Windows.Forms.TextBox tbAmount;
+        private System.Windows.Forms.TextBox tbDate;
+        private System.Windows.Forms.TextBox tbPerson;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btnTargetSales;
+        private System.Windows.Forms.Button btnTBRefresh;
     }
 }
 
