@@ -26,7 +26,8 @@ namespace EFProjectSalesApp.Model_Entity
         [Required]
         public int RegionId { get; set; }  //This naming convention will allow EF to track them automatically
 
-
+        [Required]
+        public SalesStatuses Status { get; set; }
 
     }
 }
