@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using EFProjectSalesApp.Data;
+using EFProjectSalesApp.Model_Entity;
 
 namespace EFProjectSalesApp
 {
@@ -48,14 +49,134 @@ namespace EFProjectSalesApp
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
+            /*
             var personId = (int)cbSalesPeople.SelectedValue;
             var regionId = (int)cbSalesRegion.SelectedValue;
             using (var context = new SalesContext())
             {
-                salesPersonBindingSource.DataSource = context.Sales
+                saleBindingSource.DataSource = context.Sales
                     .Where(ent => ent.PersonId == personId && ent.RegionId == regionId)
                     .OrderBy(s => s.Date)
                     .ToList();
+
+                var sale = context.Sales.Where(sl => sl.PersonId == personId && sl.RegionId == regionId)
+                                        .FirstOrDefault();
+
+
+                tbAmount.Text = sale.Amount.ToString();
+                tbDate.Text = sale.Date.ToString();
+                tbPerson.Text = sale.Person.ToString();
+                              
+            }
+            */
+
+            MessageBox.Show("Wrong Button", "Caution", MessageBoxButtons.OK);
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void btnTargetSales_Click(object sender, EventArgs e)
+        {
+            var personId = (int)cbSalesPeople.SelectedValue;
+            var regionId = (int)cbSalesRegion.SelectedValue;
+
+            using (var context = new SalesContext())
+            {
+                var person = context.SalesPeople.SingleOrDefault(p => p.id == personId);
+
+                if(person != null)
+                {
+                    MessageBox.Show(string.Format("{0} has a target of {1}", person.FullName, person.SalesTarget));
+                }
+            }
+        }
+
+        private void btnTBRefresh_Click(object sender, EventArgs e)
+        {
+            GetSalesRefresh();
+        }
+
+        private void newSaleButton_Click(object sender, EventArgs e)
+        {
+            var personId = (int)cbSalesPeople.SelectedValue;
+            var regionId = (int)cbSalesRegion.SelectedValue;
+
+            var sale = new Sale
+            {
+                Amount = newSaleAmountUpDown.Value,
+                Date = newSaleDateTimePicker.Value,
+                PersonId = personId,
+                RegionId = regionId
+            };
+
+            using (var context = new SalesContext())  //create context and saving
+            {
+                context.Sales.Add(sale);
+                var result = context.SaveChanges();
+
+                MessageBox.Show(String.Format("{0} sale created.", result));
+            }
+        }
+        
+        private void GetSalesRefresh()
+        {
+            var personId = (int)cbSalesPeople.SelectedValue;
+            var regionId = (int)cbSalesRegion.SelectedValue;
+            using (var context = new SalesContext())
+            {
+                var sale = context.Sales.Where(sl => sl.PersonId == personId && sl.RegionId == regionId)
+                                        .FirstOrDefault();
+
+                var salesPerson = context.SalesPeople.Where(per => per.id == sale.PersonId).FirstOrDefault();
+
+                tbAmount.Text = sale.Amount.ToString();
+                tbDate.Text = sale.Date.ToString();
+                tbSaleReadID.Text = sale.id.ToString();
+                if (sale.Person.Equals(null))
+                {
+                    sale.Person.FirstName = "Lance Bass";
+                }
+                else
+                {
+                    tbPerson.Text = sale.Person.FullName.ToString();
+                }
+
+            }
+        }
+
+        private void btnUpdateSale_Click(object sender, EventArgs e)
+        {
+            using (var context = new SalesContext())
+            {
+                var saleId = Int32.Parse(tbUpdateID.Text);
+                var salesAmount = newSaleAmountUpDown.Value;
+
+                var saleToUpdate = context.Sales.SingleOrDefault(p => p.id == saleId);
+
+                if(salesAmount > 0)
+                {
+                    saleToUpdate.Amount = salesAmount;
+                    context.SaveChanges();
+
+                    GetSalesRefresh();
+                }
+            }
+        }
+
+        private void btnDeleteSale_Click(object sender, EventArgs e)
+        {
+            using (var context = new SalesContext())
+            {
+                var saleId = Int32.Parse(tbUpdateID.Text);
+
+                var saleToDelete = context.Sales.SingleOrDefault(p => p.id == saleId);
+
+                context.Sales.Remove(saleToDelete);
+                context.SaveChanges();
+                MessageBox.Show("Sale deleted", "Notice", MessageBoxButtons.OK);
             }
         }
     }
